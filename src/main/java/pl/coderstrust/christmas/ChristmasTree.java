@@ -4,6 +4,7 @@ public class ChristmasTree {
     public static void main(String[] args) {
         printChristmasTree(7);
     }
+
     public static void printChristmasTree(int size) {
         int numberOfAsterisk = 1;
         for (int i = 1; i <= size; i++) {

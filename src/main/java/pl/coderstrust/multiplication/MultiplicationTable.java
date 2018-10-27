@@ -7,17 +7,22 @@ public class MultiplicationTable {
     }
 
     public static void printMultiplicationTable(int size) {
-        System.out.print("    ");
-        for (int i = 1; i <= size; i++) {
-            System.out.format("%4d", i);
-        }
-        System.out.println();
-        for (int i = 1; i <= size; i++) {
-            System.out.format("%4d", i);
-            for (int j = 1; j <= size; j++) {
-                System.out.format("%4d", i * j);
+        if (size > 12) {
+            System.out.println("Maximum supported size of Multiplication Table is 12");
+        } else {
+            System.out.print("    ");
+            for (int i = 1; i <= size; i++) {
+                System.out.printf("%4d", i);
             }
             System.out.println();
+            for (int i = 1; i <= size; i++) {
+                System.out.printf("%4d", i);
+                for (int j = 1; j <= size; j++) {
+                    System.out.printf("%4d", i * j);
+                }
+                System.out.println();
+            }
         }
+
     }
 }

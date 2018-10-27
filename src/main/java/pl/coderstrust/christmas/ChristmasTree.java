@@ -2,30 +2,27 @@ package pl.coderstrust.christmas;
 
 public class ChristmasTree {
     public static void main(String[] args) {
-
         printChristmasTree(7);
     }
-
     public static void printChristmasTree(int size) {
-
-        int empty = size;
-        int star = 1;
+        int numberOfAsterisk = 1;
         for (int i = 1; i <= size; i++) {
-            for (int j = 1; j < empty; j++) {
+            for (int j = 1; j <= size - i; j++) {
                 System.out.print(" ");
             }
-            for (int k = 1; k < star; k++) {
+            for (int k = 1; k <= numberOfAsterisk; k++) {
                 System.out.print("*");
             }
-            System.out.println("*");
-            empty--;
-            star += 2;
+            numberOfAsterisk += 2;
+            System.out.println();
         }
-        for (int i = 1; i < size; i++) {
+        printChristmasTreeTrunk(size);
+    }
+
+    private static void printChristmasTreeTrunk(int heightOfTree) {
+        for (int i = 1; i < heightOfTree - 1; i++) {
             System.out.print(" ");
         }
-        System.out.print("*");
-        System.out.print("*");
-
+        System.out.print("**");
     }
 }

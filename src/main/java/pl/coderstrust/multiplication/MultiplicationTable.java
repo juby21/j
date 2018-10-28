@@ -8,7 +8,7 @@ public class MultiplicationTable {
 
     public static void printMultiplicationTable(int size) {
         if (size > 12) {
-            throw new IllegalArgumentException("Multiplication Table size of " + size + " is not supported. Maximum size is 12");
+            throw new IllegalArgumentException(String.format("%s%d%s", "Multiplication Table size of ", size, " is not supported. Maximum size is 12"));
         }
         System.out.print("    ");
         for (int i = 1; i <= size; i++) {

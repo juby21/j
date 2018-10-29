@@ -3,33 +3,33 @@ package pl.coderstrust.pascal;
 public class PascalTriangle {
 
     public static void main(String[] args) {
-        printPascalTriangle(1);
-        System.out.println();
-        printPascalTriangle(3);
-        System.out.println();
-        printPascalTriangle(15);
+        printPascalTriangle(10);
     }
 
-    public static void printPascalTriangle(int size) {
-        long result;
-        for (int i = 0; i < size; i++) {
+    private static void printPascalTriangle(int size) {
+        for (int i = 1; i <= size; i++) {
             for (int j = i; j <= size; j++) {
                 System.out.printf("%2c", ' ');
             }
-            for (int k = 0; k <= i; k++) {
-                result = factorial(i) / (factorial(k) * factorial(i - k));
-                System.out.printf("%5d", result);
+            int[] row = preparePascalTriangle(i);
+            for (int j : row) {
+                System.out.printf("%4d", j);
             }
             System.out.println();
         }
     }
 
-    public static long factorial(long number) {
-        long factorial = 1L;
-        while (number >= 1) {
-            factorial *= number;
-            number--;
+    private static int[] preparePascalTriangle(int size) {
+        int[] previousRow = {};
+        for (int i = 0; i < size; i++) {
+            int[] newRow = new int[i + 1];
+            newRow[0] = 1;
+            for (int j = 1; j < i; j++) {
+                newRow[j] = previousRow[j - 1] + previousRow[j];
+            }
+            newRow[i] = 1;
+            previousRow = newRow;
         }
-        return factorial;
+        return previousRow;
     }
 }

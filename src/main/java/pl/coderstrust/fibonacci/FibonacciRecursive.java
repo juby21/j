@@ -12,9 +12,7 @@ public class FibonacciRecursive {
         if (fibonacciNumberInOrder < 1) {
             throw new IllegalArgumentException("The Fibonacci numbers can not be less than 1 ");
         }
-        if (fibonacciNumberInOrder == 1) {
-            return 1;
-        } else if (fibonacciNumberInOrder == 2) {
+        if (fibonacciNumberInOrder <= 2) {
             return 1;
         } else {
             return fibonacci(fibonacciNumberInOrder - 1) + fibonacci(fibonacciNumberInOrder - 2);

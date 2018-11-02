@@ -1,34 +1,37 @@
 package pl.coderstrust.sort;
 
+import java.util.Arrays;
+
 public class SelectionSort {
 
     public static void main(String[] args) {
-        int array[] = {8, 4, 7, 1, 9, 5, -3};
+        int[] array = {-2, -5, 7, 1, 9, 5, -3};
         System.out.println("Array before selection sort ");
-        for (int i : array) {
-            System.out.printf("%d%s", i, ", ");
-        }
-        System.out.printf("%s%s%s", "\n", "Array after selection sort", "\n");
-        int test[] = sort(array);
-        for (int i : test) {
-            System.out.printf("%d%s", i, ", ");
-        }
+        System.out.println(Arrays.toString(array));
+        System.out.println("Array after selection sort");
+        int[] test = sort(array);
+        System.out.print(Arrays.toString(test));
     }
 
-    private static int[] sort(int[] array) {
-        for (int i = 0; i < array.length - 1; i++) {
-            int temp;
-            int min = i;
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[j] < array[min]) {
-                    min = j;
+    public static int[] sort(int[] array) {
+        int[] tempArray = array;
+        for (int i = 0; i < tempArray.length - 1; i++) {
+            int minimalElementPosition = i;
+            for (int j = i + 1; j < tempArray.length; j++) {
+                if (tempArray[j] < tempArray[minimalElementPosition]) {
+                    minimalElementPosition = j;
                 }
             }
-            temp = array[min];
-            array[min] = array[i];
-            array[i] = temp;
+            swapPosition(tempArray, minimalElementPosition, i);
         }
-        return array;
+        return tempArray;
+    }
+
+    public static int[] swapPosition(int[] array, int minimalElementPosition, int newPosition) {
+        int[] tempArray = array;
+        int temp = tempArray[minimalElementPosition];
+        tempArray[minimalElementPosition] = tempArray[newPosition];
+        tempArray[newPosition] = temp;
+        return tempArray;
     }
 }
-

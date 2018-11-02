@@ -14,8 +14,7 @@ public class FibonacciRecursive {
         }
         if (fibonacciNumberInOrder <= 2) {
             return 1;
-        } else {
-            return fibonacci(fibonacciNumberInOrder - 1) + fibonacci(fibonacciNumberInOrder - 2);
         }
+        return fibonacci(fibonacciNumberInOrder - 1) + fibonacci(fibonacciNumberInOrder - 2);
     }
 }
